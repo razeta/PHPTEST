@@ -1,0 +1,43 @@
+#datatable{
+	margin: auto;
+	width: 90%;
+	padding: 10px;
+}
+
+#bookstable{	
+	margin: auto;
+	text-align: center;
+	border-top: thin solid grey;
+	width: 90%;
+}
+#bookstable td, th {
+	border-bottom: thin solid grey;
+}
+
+.bookslide-out{
+	position: relative;
+	animation-name: bookslideanimation-out;
+	animation-duration: 4s;
+}
+
+.bookslide-in{
+	position: relative;
+	animation-name: bookslideanimation-in;
+	animation-duration: 4s;
+}
+
+@keyframes bookslideanimation-out {
+  0%   {left:0%; top:0px;}
+  /*25%  {left:25%; top:0px;}
+  50%  {left:50%; top:0px;}
+  75%  {left:75%; top:0px;}*/
+  100% {left:100%; top:0px;}
+}
+
+@keyframes bookslideanimation-in {
+  0%   {left:-100%; top:0px;}
+  /*25%  {left:25%; top:0px;}
+  50%  {left:50%; top:0px;}
+  75%  {left:75%; top:0px;}*/
+  100% {left:0%; top:0px;}
+}
