@@ -8,7 +8,7 @@ class DB{
 	public function dbConnect(){
 
 		// Connecting, selecting database
-		$this->dbconn = pg_pconnect("host=localhost dbname=books user=postgres password=root")
+		$this->dbconn = pg_pconnect("host=ls-770ad92cb4f54f363e6d03ef5d4da826de889099.cdrc4ah2k9aq.us-west-2.rds.amazonaws.com dbname=books user=dbmasteruser password=N)hb`&}8^2$[eQ+IW3=6p=9+G;qDh:ib")
 		or die('Could not connect: ' . pg_last_error());
 
 	}
