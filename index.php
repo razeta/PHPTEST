@@ -152,9 +152,11 @@
 					
 					FileLoader::dirloader();
 									
-				}			
+				}
+			phpinfo();				
 			?>
 		</div>
+		
 		
 	</body>
 </html>
