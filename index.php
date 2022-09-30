@@ -153,7 +153,7 @@
 					FileLoader::dirloader();
 									
 				}
-			phpinfo();				
+			//phpinfo();				
 			?>
 		</div>
 		
