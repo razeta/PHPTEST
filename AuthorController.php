@@ -1,48 +1,40 @@
 <?php 
 include "DB.php";
 			  
+//Author controller and actions
 class AuthorController{
 	
+	//Return authors data from DB
 	public function getAuthorsData($table, $jointable, $search){
 		
+		//Local var
 		$db = new DB();
-		$db->dbConnect();
-		$results = $db->findBy($table, $jointable, $search);	
-		//print_r($results);
-		
+		$db->dbConnect();				
 		$books = null;
 		$data = array();
 		
+		//Find authors
+		$results = $db->findBy($table, $jointable, $search);	
+		//print_r($results);
+
+		//If results is not empty fetch data and store it in array for JSON treatment
 		if($results){
-			while($book = pg_fetch_assoc($results)){
-				  //print_r($book);
-				  /*$books .= 
-					  '<tr class="bookslide">
-						<td>'. $book['id'] .'</td>
-						<td>'. $book['author'] .'</td>
-						<td>'. $book['name'] .'</td>
-					  </tr>';*/
-					  
-					  $data[] = array('id' => $book['id'], "author" => $book['author'], "name" => $book['name']);
+			while($book = pg_fetch_assoc($results)){				
+				$data[] = array('id' => $book['id'], "author" => $book['author'], "name" => $book['name']);
 			}
 			
 			$db->dbDisconnect();
 			
-			//return $books;
-			//header('Content-Type: application/json; charset=utf-8');
+			
+			//return response		
 			echo json_encode($data);
 		
 		}else{
-			
+			//Return empty JSON response
 			$data = array();			
 			$data[] = array('id' => 0, "author" => "EMPTY", "name" => "EMPTY");
 				
 			echo json_encode($data);
-			  /*'<tr class="bookslide">
-				<td>0</td>
-				<td>Nothing</td>
-				<td>to show.</td>
-			  </tr>';*/
 		}
 		
 	}
